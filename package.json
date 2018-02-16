@@ -1,0 +1,33 @@
+{
+  "name": "gatsby-source-dribbble",
+  "version": "1.0.0",
+  "description": "Gatsby source plugin for loading your shots from Dribbble",
+  "main": "gatsby-node.js",
+  "scripts": {
+    "build": "babel src --out-dir ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/smakosh/gatsby-source-dribbble"
+  },
+  "bugs": {
+    "url": "https://github.com/smakosh/gatsby-source-dribbble/issues"
+  },
+  "homepage": "https://github.com/smakosh/gatsby-source-dribbble",
+  "keywords": [
+    "gatsby",
+    "gatsby-plugin",
+    "gatsby-source-plugin",
+    "dribbble"
+  ],
+  "author": "Smakosh <ismai23l@hotmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.17.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.6.1"
+  }
+}
