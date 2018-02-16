@@ -15,6 +15,7 @@ exports.sourceNodes = (() => {
         baseURL: `https://api.dribbble.com/v2/user/`,
     })
 
+    // Thanks to https://github.com/LeKoArts/gatsby-source-behance/blob/master/gatsby-node.js
     const rateLimit = 500;
     let lastCalled = undefined;
 
