@@ -1,6 +1,9 @@
 # gatsby-source-dribbble
 > Gatsby.js source plugin for loading data from Dribbble
 
+[![Package Version](https://img.shields.io/npm/v/gatsby-source-dribbble.svg?style=flat-square)](https://www.npmjs.com/package/gatsby-source-dribbble)
+[![Package Downloads](https://img.shields.io/npm/dt/gatsby-source-dribbble.svg?style=flat-square)](https://www.npmjs.com/package/gatsby-source-dribbble)
+
 Learn more about [Gatsby](https://www.gatsbyjs.org/) and its plugins here: [https://www.gatsbyjs.org/docs/plugins/](https://www.gatsbyjs.org/docs/plugins/)
 
 **See it in live action on the [example site](https://dribbble-example.netlify.com)!**
