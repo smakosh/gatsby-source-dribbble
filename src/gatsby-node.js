@@ -30,6 +30,9 @@ exports.sourceNodes = async ({ boundActionCreators: { createNode } }, { access_t
   axiosClient.interceptors.request.use(rateLimiter)
 
   const { data } = await axiosClient.get(`/shots?access_token=${access_token}`)
+  const { user } = await axiosClient.get(`?access_token=${access_token}`)
+
+  const jsonStringUser = JSON.stringify(user)
 
 
   data.map(shot => {
@@ -56,5 +59,29 @@ exports.sourceNodes = async ({ boundActionCreators: { createNode } }, { access_t
       },
     }
     createNode(shotListNode)
+
+    const userNode = {
+      userID: user.id,
+      name: user.name,
+      username: user.login,
+      bio: user.bio,
+      avatar: user.avatar_url,
+      location: user.location,
+      url: user.html_url,
+      links: user.links,
+      created_at: user.created_at,
+      can_upload: user.can_upload_shot,
+      pro: user.pro,
+      teams: user.teams,
+      children: [],
+      id: user.id.toString(),
+      parent: `__SOURCE__`,
+      internal: {
+        type: `DribleUser`,
+        contentDigest: crypto.createHash(`md5`).update(jsonStringUser).digest(`hex`)
+      }
+    };
+
+    createNode(userNode);
   })
 }

@@ -40,6 +40,10 @@ exports.sourceNodes = (() => {
 
     let _ref2 = yield axiosClient.get(`/shots?access_token=${access_token}`);
 
+    let user = yield axiosClient.get(`?access_token=${access_token}`);
+
+    const jsonStringUser = JSON.stringify(user.data);
+
     _ref2.data.map(function (shot) {
 
       const jsonString = JSON.stringify(shot);
@@ -65,6 +69,30 @@ exports.sourceNodes = (() => {
       }
       createNode(shotListNode)
     });
+
+    const userNode = {
+      userID: user.data.id,
+      name: user.data.name,
+      username: user.data.login,
+      bio: user.data.bio,
+      avatar: user.data.avatar_url,
+      location: user.data.location,
+      url: user.data.html_url,
+      links: user.data.links,
+      created_at: user.data.created_at,
+      can_upload: user.data.can_upload_shot,
+      pro: user.data.pro,
+      teams: user.data.teams,
+      children: [],
+      id: user.data.id.toString(),
+      parent: `__SOURCE__`,
+      internal: {
+        type: `DribleUser`,
+        contentDigest: crypto.createHash(`md5`).update(jsonStringUser).digest(`hex`)
+      }
+    };
+
+    createNode(userNode);
   });
 
   return function (_x, _x2) {

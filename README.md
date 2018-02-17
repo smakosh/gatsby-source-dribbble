@@ -1,5 +1,5 @@
 # gatsby-source-dribbble
-> Gatsby.js source plugin for loading your shots from Dribbble
+> Gatsby.js source plugin for loading data from Dribbble
 
 Learn more about [Gatsby](https://www.gatsbyjs.org/) and its plugins here: [https://www.gatsbyjs.org/docs/plugins/](https://www.gatsbyjs.org/docs/plugins/)
 
@@ -25,6 +25,26 @@ plugins: [
 ```
 
 ## GraphQL Queries
+
+Get all your details
+
+```graphql
+{
+    dribleUser {
+      name
+      username
+      bio
+      avatar
+      location
+      url
+      links
+      created_at
+      can_upload
+      pro
+      teams
+    }
+}
+```
 
 Get all your shots
 

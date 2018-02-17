@@ -1,7 +1,7 @@
 {
   "name": "gatsby-source-dribbble",
-  "version": "1.0.1",
-  "description": "Gatsby source plugin for loading your shots from Dribbble",
+  "version": "1.0.3",
+  "description": "Gatsby source plugin for loading your data from Dribbble",
   "main": "gatsby-node.js",
   "scripts": {
     "build": "babel src --out-dir ."
