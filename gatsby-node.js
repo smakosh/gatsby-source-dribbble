@@ -8,15 +8,15 @@ const axios = require(`axios`);
 exports.sourceNodes = (() => {
   var _ref = _asyncToGenerator(function* ({ boundActionCreators: { createNode } }, { access_token }) {
     if (!access_token) {
-        throw 'You need to get an access_token'
+        throw 'You need to get an access_token';
     }
 
     const axiosClient = axios.create({
         baseURL: `https://api.dribbble.com/v2/user/`,
-    })
+    });
 
     // Thanks to https://github.com/LeKoArts/gatsby-source-behance/blob/master/gatsby-node.js
-    const rateLimit = 500;
+    const rateLimit = 60;
     let lastCalled = undefined;
 
     const rateLimiter = function rateLimiter(call) {
@@ -67,7 +67,7 @@ exports.sourceNodes = (() => {
           contentDigest: crypto.createHash(`md5`).update(jsonString).digest(`hex`),
         },
       }
-      createNode(shotListNode)
+      createNode(shotListNode);
     });
 
     const userNode = {

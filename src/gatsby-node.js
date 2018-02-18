@@ -11,7 +11,7 @@ exports.sourceNodes = async ({ boundActionCreators: { createNode } }, { access_t
   })
 
   // Thanks to https://github.com/LeKoArts/gatsby-source-behance/blob/master/gatsby-node.js
-  const rateLimit = 500
+  const rateLimit = 60
   let lastCalled = undefined
 
   const rateLimiter = (call) => {

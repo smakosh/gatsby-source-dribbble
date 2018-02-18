@@ -1,6 +1,6 @@
 {
   "name": "gatsby-source-dribbble",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Gatsby source plugin for loading your data from Dribbble",
   "main": "gatsby-node.js",
   "scripts": {
