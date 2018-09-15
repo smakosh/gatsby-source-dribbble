@@ -29,7 +29,7 @@ exports.sourceNodes = async ({ boundActionCreators: { createNode } }, { access_t
 
   axiosClient.interceptors.request.use(rateLimiter)
 
-  const { data } = await axiosClient.get(`/shots?access_token=${access_token}`)
+  const { data } = await axiosClient.get(`/shots?per_page=100?access_token=${access_token}`)
   const { user } = await axiosClient.get(`?access_token=${access_token}`)
 
   const jsonStringUser = JSON.stringify(user)
