@@ -38,7 +38,7 @@ exports.sourceNodes = (() => {
 
     axiosClient.interceptors.request.use(rateLimiter);
 
-    let _ref2 = yield axiosClient.get(`/shots?access_token=${access_token}`);
+    let _ref2 = yield axiosClient.get(`/shots?per_page=100&access_token=${access_token}`);
 
     let user = yield axiosClient.get(`?access_token=${access_token}`);
 
