@@ -1,7 +1,7 @@
 const crypto = require(`crypto`)
 const axios = require(`axios`)
 
-exports.sourceNodes = async ({ boundActionCreators: { createNode } }, { access_token }) => {
+exports.sourceNodes = async ({ actions: { createNode } }, { access_token }) => {
   if (!access_token) {
     throw 'You need to get an access_token'
   }

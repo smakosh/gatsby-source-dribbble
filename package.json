@@ -1,6 +1,6 @@
 {
   "name": "gatsby-source-dribbble",
-  "version": "1.0.6",
+  "version": "1.0.9",
   "description": "Gatsby source plugin for loading your data from Dribbble",
   "main": "gatsby-node.js",
   "scripts": {
@@ -25,9 +25,7 @@
   "dependencies": {
     "axios": "^0.17.1"
   },
-  "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "babel-preset-env": "^1.6.1"
+  "peerDependencies": {
+    "gatsby": ">=1"
   }
 }

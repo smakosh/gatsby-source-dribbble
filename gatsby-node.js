@@ -6,7 +6,7 @@ const crypto = require(`crypto`);
 const axios = require(`axios`);
 
 exports.sourceNodes = (() => {
-  var _ref = _asyncToGenerator(function* ({ boundActionCreators: { createNode } }, { access_token }) {
+  var _ref = _asyncToGenerator(function* ({ actions: { createNode } }, { access_token }) {
     if (!access_token) {
         throw 'You need to get an access_token';
     }
