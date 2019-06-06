@@ -1,6 +1,8 @@
 # gatsby-source-dribbble
 > Gatsby.js source plugin for loading data from Dribbble
 
+[![Support me on Patreon](https://c5.patreon.com/external/logo/become_a_patron_button.png)](https://www.patreon.com/smakosh)
+
 [![Package Version](https://img.shields.io/npm/v/gatsby-source-dribbble.svg?style=flat-square)](https://www.npmjs.com/package/gatsby-source-dribbble)
 [![Package Downloads](https://img.shields.io/npm/dt/gatsby-source-dribbble.svg?style=flat-square)](https://www.npmjs.com/package/gatsby-source-dribbble)
 
