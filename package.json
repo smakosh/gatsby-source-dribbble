@@ -1,6 +1,6 @@
 {
-  "name": "gatsby-source-dribbble",
-  "version": "2.0.0",
+  "name": "@mitchellbutler/gatsby-source-dribbble",
+  "version": "2.0.1",
   "description": "Gatsby source plugin for loading your data from Dribbble",
   "main": "gatsby-node.js",
   "scripts": {
@@ -21,7 +21,7 @@
     "gatsby-source-plugin",
     "dribbble"
   ],
-  "author": "Smakosh <ismai23l@hotmail.com>",
+  "author": "Mitchell Butler <me@mitchellbutler.com>",
   "license": "MIT",
   "dependencies": {
     "axios": "^0.19.0"
