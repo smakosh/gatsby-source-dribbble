@@ -61,14 +61,16 @@ Get all your shots
 {
   allDribbbleShot {
     nodes {
+      id
       title
       description
-      id
       published
       updated
       url
       tags
       cover
+      width
+      height
       localCover {
         childImageSharp {
           fixed(width: 600) {
@@ -76,8 +78,6 @@ Get all your shots
           }
         }
       }
-      width
-      height
     }
   }
 }
