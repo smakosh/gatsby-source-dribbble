@@ -1,0 +1,24 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "mitchellbutler",
+      "name": "Mitchell Butler",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/1069577?v=4",
+      "profile": "http://www.mitchellbutler.com",
+      "contributions": [
+        "code"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "gatsby-source-dribbble",
+  "projectOwner": "smakosh",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}
