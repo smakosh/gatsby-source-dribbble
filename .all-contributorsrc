@@ -1,0 +1,24 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "davewasmer",
+      "name": "Dave Wasmer",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/707213?v=4",
+      "profile": "http://www.davewasmer.com",
+      "contributions": [
+        "code"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "gatsby-source-dribbble",
+  "projectOwner": "smakosh",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}
