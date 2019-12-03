@@ -1,4 +1,5 @@
 # gatsby-source-dribbble
+
 > Gatsby.js source plugin for loading data from Dribbble
 
 [![Support me on Patreon](https://c5.patreon.com/external/logo/become_a_patron_button.png)](https://www.patreon.com/smakosh)
@@ -22,13 +23,13 @@ npm install gatsby-source-dribbble
 ```Javascript
 // In your gatsby-config.js
 plugins: [
-    {
-        resolve: `gatsby-source-dribbble`,
-        options: {
-            // You can get your Access Token by following this tutorial: http://developer.dribbble.com/v2/oauth/
-            access_token: '<< Your_Access_Token_here >>'
-        }
+  {
+    resolve: `gatsby-source-dribbble`,
+    options: {
+      // You can get your Access Token by following this tutorial: http://developer.dribbble.com/v2/oauth/
+      access_token: '<< Your_Access_Token_here >>'
     }
+  }
 ]
 ```
 
@@ -38,19 +39,19 @@ Get all your details
 
 ```graphql
 {
-    dribleUser {
-      name
-      username
-      bio
-      avatar
-      location
-      url
-      links
-      created_at
-      can_upload
-      pro
-      teams
-    }
+  dribbbleUser {
+    name
+    username
+    bio
+    avatar
+    location
+    url
+    links
+    created_at
+    can_upload
+    pro
+    teams
+  }
 }
 ```
 
@@ -58,21 +59,26 @@ Get all your shots
 
 ```graphql
 {
-    allDribleProjects {
-        edges {
-            node {
-                title
-                description
-                id
-                published
-                updated
-                url
-                tags
-                cover
-                width
-                height
-            }
+  allDribbbleShot {
+    nodes {
+      id
+      title
+      description
+      published
+      updated
+      url
+      tags
+      cover
+      width
+      height
+      localCover {
+        childImageSharp {
+          fixed(width: 600) {
+            ...GatsbyImageSharpFixed
+          }
         }
+      }
     }
+  }
 }
 ```
