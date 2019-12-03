@@ -2,6 +2,8 @@
 
 Gatsby.js source plugin for loading data from Dribbble
 
+This project is a refactor of [`gatsby-source-dribbble`](https://github.com/smakosh/gatsby-source-dribbble).
+
 Learn more about [Gatsby](https://www.gatsbyjs.org/) and its plugins here: [https://www.gatsbyjs.org/docs/plugins/](https://www.gatsbyjs.org/docs/plugins/)
 
 ## Install
