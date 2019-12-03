@@ -1,26 +1,32 @@
-const crypto = require(`crypto`)
-const axios = require(`axios`)
+const axios = require("axios")
+const { createFileNode } = require("./createFileNode")
+const { generateUserNode, generateShotNode } = require("./generateNode")
 
-exports.sourceNodes = async ({ actions: { createNode } }, { access_token }) => {
+exports.sourceNodes = async (
+  { actions, store, cache, createNodeId },
+  { access_token }
+) => {
+  const { createNode, touchNode } = actions
+
   if (!access_token) {
-    throw 'You need to get an access_token'
+    throw "You need to get an access_token"
   }
 
   const axiosClient = axios.create({
-    baseURL: `https://api.dribbble.com/v2/user/`,
+    baseURL: "https://api.dribbble.com/v2/user/",
   })
 
   // Thanks to https://github.com/LeKoArts/gatsby-source-behance/blob/master/gatsby-node.js
   const rateLimit = 60
   let lastCalled = undefined
 
-  const rateLimiter = (call) => {
+  const rateLimiter = call => {
     const now = Date.now()
     if (lastCalled) {
       lastCalled += rateLimit
-      const wait = (lastCalled - now)
+      const wait = lastCalled - now
       if (wait > 0) {
-        return new Promise((resolve) => setTimeout(() => resolve(call), wait))
+        return new Promise(resolve => setTimeout(() => resolve(call), wait))
       }
     }
     lastCalled = now
@@ -29,59 +35,26 @@ exports.sourceNodes = async ({ actions: { createNode } }, { access_token }) => {
 
   axiosClient.interceptors.request.use(rateLimiter)
 
-  const { data } = await axiosClient.get(`/shots?per_page=100?access_token=${access_token}`)
-  const { user } = await axiosClient.get(`?access_token=${access_token}`)
+  // build the user node
+  const userResponse = await axiosClient.get("/", { params: { access_token } })
+  const userNode = generateUserNode(userResponse.data)
+  createNode(userNode)
 
-  const jsonStringUser = JSON.stringify(user)
-
-
-  data.map(shot => {
-
-    const jsonString = JSON.stringify(project)
-
-    const shotListNode = {
-      title: shot.title,
-      description: shot.description,
-      shotID: shot.id,
-      published: shot.published_at,
-      updated: shot.updated_at,
-      url: shot.html_url,
-      tags: shot.tags,
-      cover: shot.images.hidpi,
-      width: shot.width,
-      height: shot.height,
-      children: [],
-      id: shot.id.toString(),
-      parent: `__SOURCE__`,
-      internal: {
-        type: `DribleProjects`,
-        contentDigest: crypto.createHash(`md5`).update(jsonString).digest(`hex`),
-      },
-    }
-    createNode(shotListNode)
-
-    const userNode = {
-      userID: user.id,
-      name: user.name,
-      username: user.login,
-      bio: user.bio,
-      avatar: user.avatar_url,
-      location: user.location,
-      url: user.html_url,
-      links: user.links,
-      created_at: user.created_at,
-      can_upload: user.can_upload_shot,
-      pro: user.pro,
-      teams: user.teams,
-      children: [],
-      id: user.id.toString(),
-      parent: `__SOURCE__`,
-      internal: {
-        type: `DribleUser`,
-        contentDigest: crypto.createHash(`md5`).update(jsonStringUser).digest(`hex`)
-      }
-    };
-
-    createNode(userNode);
+  // build the shot nodes
+  const shotsResponse = await axiosClient.get("/shots", {
+    params: { access_token, per_page: 100 },
   })
+  for (const shot of shotsResponse.data) {
+    const shotNode = generateShotNode(shot)
+    shotNode.localCover___NODE = await createFileNode({
+      id: shotNode.id,
+      fileUrl: shotNode.cover,
+      store,
+      cache,
+      createNode,
+      createNodeId,
+      touchNode,
+    })
+    createNode(shotNode)
+  }
 }
