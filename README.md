@@ -59,21 +59,25 @@ Get all your shots
 
 ```graphql
 {
-  allDribbbleShots {
-    edges {
-      node {
-        title
-        description
-        id
-        published
-        updated
-        url
-        tags
-        cover
-        localCover
-        width
-        height
+  allDribbbleShot {
+    nodes {
+      title
+      description
+      id
+      published
+      updated
+      url
+      tags
+      cover
+      localCover {
+        childImageSharp {
+          fixed(width: 600) {
+            ...GatsbyImageSharpFixed
+          }
+        }
       }
+      width
+      height
     }
   }
 }
