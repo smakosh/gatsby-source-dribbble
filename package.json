@@ -24,7 +24,7 @@
   "author": "Smakosh <ismai23l@hotmail.com>",
   "license": "MIT",
   "dependencies": {
-    "axios": "^0.19.0"
+    "axios": "^0.21.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.7.4",
