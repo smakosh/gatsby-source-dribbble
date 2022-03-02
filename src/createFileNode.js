@@ -22,7 +22,10 @@ exports.createFileNode = async ({
   if (cacheMediaData) {
     fileNodeID = cacheMediaData.fileNodeID
     touchNode({
-      nodeId: cacheMediaData.fileNodeID,
+      id: cacheMediaData.fileNodeID,
+      internal: {
+        type: "DribbbleShot",
+      }
     })
   }
 
